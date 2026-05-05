@@ -1,0 +1,61 @@
+# ============================================================
+# Savia (Rust) — firmware estación
+# Target: Raspberry Pi Zero 2 W (Linux ARMv8 / aarch64)
+# ============================================================
+
+# --- IDE / editor (no commit) --------------------------------
+.idea/
+*.iml
+.vscode/
+.fleet/
+*.swp
+*.swo
+
+# --- Cargo / Rust build --------------------------------------
+target/
+**/*.rs.bk
+*.pdb
+# rust-analyzer / rustc incremental
+.rustc_info.json
+
+# Cargo.lock: KEEP committed for binary crates (this is one).
+# If we ever convert this to a library crate, ignore it instead.
+
+# --- Cross-compile artefacts (Pi Zero 2W = aarch64-unknown-linux-gnu)
+.cargo/config.local.toml
+
+# --- Runtime data del firmware (NO commitear muestras reales) -
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+logs/
+*.log
+
+# --- Modelos ML grandes (controlar con DVC/Git LFS si hace falta)
+*.tflite
+*.onnx
+*.pt
+*.pth
+models/
+
+# --- Coverage / profiling ------------------------------------
+*.profraw
+*.profdata
+tarpaulin-report.html
+cobertura.xml
+
+# --- Secrets / env -------------------------------------------
+.env
+.env.*
+!.env.example
+secrets/
+credentials.json
+
+# --- OS junk -------------------------------------------------
+.DS_Store
+._*
+Thumbs.db
